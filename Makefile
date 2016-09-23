@@ -1,3 +1,4 @@
+SHELL=/bin/bash
 SASS=scss
 SASSFLAGS=--sourcemap=none
 GLIB_COMPILE_RESOURCES=glib-compile-resources
