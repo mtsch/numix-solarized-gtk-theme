@@ -1,4 +1,3 @@
-SHELL=/bin/bash
 SASS=scss
 SASSFLAGS=--sourcemap=none
 GLIB_COMPILE_RESOURCES=glib-compile-resources
@@ -38,10 +37,10 @@ install: all
 	rm $(INSTALL_DIR)/NumixSolarized/index-dark.theme
 	rm $(INSTALL_DIR)/NumixSolarized/gtk-2.0/gtkrc-dark
 	$(UTILS) install $(INSTALL_DIR)/NumixSolarizedDark
-	mv $(INSTALL_DIR)/NumixSolarizedDark/index{-dark,}.theme
-	mv $(INSTALL_DIR)/NumixSolarizedDark/gtk-2.0/gtkrc{-dark,}
-	cp $(INSTALL_DIR)/NumixSolarizedDark/gtk-3.0/gtk{-dark,}.css
-	cp $(INSTALL_DIR)/NumixSolarizedDark/gtk-3.20/gtk{-dark,}.css
+	mv $(INSTALL_DIR)/NumixSolarizedDark/index-dark.theme $(INSTALL_DIR)/NumixSolarizedDark/index.theme
+	mv $(INSTALL_DIR)/NumixSolarizedDark/gtk-2.0/gtkrc-dark $(INSTALL_DIR)/NumixSolarizedDark/gtk-2.0/gtkrc
+	cp $(INSTALL_DIR)/NumixSolarizedDark/gtk-3.0/gtk-dark.css $(INSTALL_DIR)/NumixSolarizedDark/gtk-3.0/gtk.css
+	cp $(INSTALL_DIR)/NumixSolarizedDark/gtk-3.20/gtk-dark.css $(INSTALL_DIR)/NumixSolarizedDark/gtk-3.20/gtk.css
 
 uninstall:
 	rm -rf $(INSTALL_DIR)
