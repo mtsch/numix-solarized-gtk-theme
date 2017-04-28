@@ -1,6 +1,37 @@
 # Numix GTK Theme
 
-gtk-color-scheme = "bg_color:#002b36\nfg_color:#dcdcdc\nbase_color:#073642\ntext_color:#eee8d5\nselected_bg_color:#859900\nselected_fg_color:#fdf6e3\ntooltip_bg_color:#859900\ntooltip_fg_color:#fdf6e3\ntitlebar_bg_color:#002b36\ntitlebar_fg_color:#dcdcdc\nmenubar_bg_color:#002b36\nmenubar_fg_color:#dcdcdc\ntoolbar_bg_color:#002b36\ntoolbar_fg_color:#dcdcdc\nmenu_bg_color:#002b36\nmenu_fg_color:#dcdcdc\npanel_bg_color:#002b36\npanel_fg_color:#dcdcdc\nlink_color:#d33682"
+# Text/base
+gtk-color-scheme = "base_color:#002b36\ntext_color:#657b83"
+# Foreground/background
+gtk-color-scheme = "bg_color:#073642\nfg_color:#93a1a1"
+# Selected foreground/background
+gtk-color-scheme = "selected_bg_color:#859900\nselected_fg_color:#002b36\n"
+# Tooltips
+gtk-color-scheme = "tooltip_bg_color:#859900\ntooltip_fg_color:#002b36"
+# Titlebar
+gtk-color-scheme = "titlebar_bg_color:#073642\ntitlebar_fg_color:#93a1a1"
+# Menubar
+gtk-color-scheme = "menubar_bg_color:#073642\nmenubar_fg_color:#93a1a1"
+# Toolbar
+#gtk-color-scheme = "toolbar_bg_color:#073642\ntoolbar_fg_color:#93a1a1"
+# Menu
+gtk-color-scheme = "menu_bg_color:#073642\nmenu_fg_color:#93a1a1"
+# Panel
+gtk-color-scheme = "panel_bg_color:#073642\npanel_fg_color:#93a1a1"
+# Links
+gtk-color-scheme = "link_color:#d33682\nvisited_link_color:#6c71c4"
+# Treeview headers
+#gtk-color-scheme = "column_header_color:#00ff00\nhover_column_header_color:#bcbdbc"
+
+# Insensitive foreground/background
+gtk-color-scheme = "insensitive_fg_color:#919494\ninsensitive_bg_color:#2d3234"
+# Menus
+gtk-color-scheme = "menu_color:#262b2d"
+# Treeview headers
+gtk-color-scheme = "column_header_color:#898b8b\nhover_column_header_color:#bcbdbc"
+# Window decoration
+gtk-color-scheme = "window_color:#2c3133"
+
 
 # Default Style
 
@@ -587,17 +618,36 @@ widget "*Xfce*Panel*" style "murrine-panel"
 class "*Xfce*Panel*" style "murrine-panel"
 
 # Thunar Styles
+style "thunar-location" {
+    ThunarLocationButtons::spacing = 0
+}
+
+style "thunar-frame" {
+    xthickness = 0
+    ythickness = 0
+}
 
 style "sidepane" {
 	base[NORMAL] = @bg_color
 	base[INSENSITIVE] = mix (0.4, shade (1.35, @selected_bg_color), shade (0.9, @base_color))
 	bg[NORMAL] = @bg_color
-	text[NORMAL] = mix (0.9, @fg_color, @bg_color)
+	text[NORMAL] = @fg_color
+
+        GtkTreeView::odd_row_color  = @base_color
+        GtkTreeView::even_row_color = @bg_color
+        engine "murrine" {}
 }
 
+widget_class "*ThunarLocationEntry*" style "murrine-entry"
+widget_class "*ThunarLocationButtons*"            style "thunar-location"
 widget_class "*ThunarShortcutsView*" style "sidepane"
 widget_class "*ThunarTreeView*" style "sidepane"
-widget_class "*ThunarLocationEntry*" style "murrine-entry"
+widget_class "*ThunarWindow*.<GtkScrolledWindow>" style "thunar-frame"
+widget_class "*ThunarDetailsView*"                   style "sidepane"
+widget_class "*ThunarCompactView*"                   style "sidepane"
+widget_class "*ThunarIconView*"                   style "sidepane"
+
+
 
 style "whiskermenu" {
 	bg[NORMAL] = @menu_bg_color
